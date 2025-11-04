@@ -1,4 +1,5 @@
 using CleanArchitecture.Domain.Alquileres;
+using CleanArchitecture.Domain.Alquileres.Events;
 using CleanArchitecture.Domain.Shared;
 using CleanArchitecture.Domain.Users;
 using CleanArchitecture.Domain.Vehiculos;
@@ -13,6 +14,9 @@ internal sealed class AlquilerConfiguration : IEntityTypeConfiguration<Alquiler>
     {
         builder.ToTable("alquileres");
         builder.HasKey(alquiler => alquiler.Id);
+
+        builder.Property(alquiler => alquiler.Id)
+        .HasConversion(alquilerId => alquilerId!.Value, value => new AlquilerId(value));
 
         builder.OwnsOne(alquiler => alquiler.PrecioPorPeriodo, precioBuilder => 
         {

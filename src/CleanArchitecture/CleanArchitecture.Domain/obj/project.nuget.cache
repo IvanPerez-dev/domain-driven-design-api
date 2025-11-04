@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "nxRshCIKVGbN1MH+Gwupj0H+odLwF0pcOpB76wHNuD+/xZkaDV6x8Iw7p0XrGnv0k999poZFSraUT4o2z+heNQ==",
+  "dgSpecHash": "g3MFV9t0k/vXmUeD6LKPd6aeD+DlhNlVOVZDBFoXfVGlk5tGhMpqChKIczne3lFi8Sbcg0fSYpxsVr+yhIcYBw==",
   "success": true,
-  "projectFilePath": "C:\\CleanArchitecture\\src\\CleanArchitecture\\CleanArchitecture.Domain\\CleanArchitecture.Domain.csproj",
+  "projectFilePath": "C:\\temp\\pagination-ca\\CleanArchitecture\\src\\CleanArchitecture\\CleanArchitecture.Domain\\CleanArchitecture.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\javix\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512"
   ],

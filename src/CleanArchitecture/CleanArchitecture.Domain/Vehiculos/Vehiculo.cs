@@ -1,13 +1,17 @@
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq.Expressions;
+using System.Runtime.Serialization;
+using System.Security.Cryptography.X509Certificates;
 using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Shared;
 
 namespace CleanArchitecture.Domain.Vehiculos;
 
-public sealed class Vehiculo : Entity
+public sealed class Vehiculo : Entity<VehiculoId>
 {
-   private Vehiculo(){}
+    private Vehiculo() { }
     public Vehiculo(
-        Guid id,
+        VehiculoId id,
         Modelo modelo,
         Vin vin,
         Moneda precio,
@@ -21,21 +25,26 @@ public sealed class Vehiculo : Entity
         Vin = vin;
         Precio = precio;
         Mantenimiento = mantenimiento;
-        FechaUltimaAlquiler =fechaUltimaAlquiler;
+        FechaUltimaAlquiler = fechaUltimaAlquiler;
         Accesorios = accesorios;
         Direccion = direccion;
     }
 
+    public Modelo? Modelo { get; set; }
 
-    public Modelo? Modelo {get;private set;}
 
-    public Vin? Vin {get;private set;}
-  
-    public Direccion? Direccion {get; private set;}
-    
-    public Moneda? Precio {get;private set;}
-    public Moneda? Mantenimiento {get; private set;}
-    public DateTime? FechaUltimaAlquiler {get; internal set;}
+    public Vin? Vin { get; private set; }
 
-    public List<Accesorio> Accesorios {get; private set;} = new();
+    public Direccion? Direccion { get; private set; }
+
+    public Moneda? Precio { get; private set; }
+    public Moneda? Mantenimiento { get; private set; }
+    public DateTime? FechaUltimaAlquiler { get; internal set; }
+
+    public List<Accesorio> Accesorios { get; private set; } = new();
+
+    public override string ToString()
+    {
+        return Modelo!.Value;
+    }
 }

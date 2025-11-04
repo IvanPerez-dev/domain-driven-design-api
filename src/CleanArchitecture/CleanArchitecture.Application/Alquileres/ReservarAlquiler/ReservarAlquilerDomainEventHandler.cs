@@ -38,7 +38,7 @@ internal sealed class ReservarAlquilerDomainEventHandler
         }
 
         var user = await _userRepository.GetByIdAsync(
-            alquiler.UserId,
+            alquiler.UserId!,
             cancellationToken
         );
 
@@ -47,8 +47,8 @@ internal sealed class ReservarAlquilerDomainEventHandler
             return;
         }
 
-        await _emailService.SendAsync(
-            user.Email!,
+         _emailService.Send(
+            user.Email!.Value!,
             "Alquiler Reservado",
             "Tienes que confirmar esta reserva de lo contrario se va a perder"
         );

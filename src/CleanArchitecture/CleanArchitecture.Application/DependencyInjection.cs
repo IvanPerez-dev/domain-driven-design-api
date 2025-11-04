@@ -1,4 +1,5 @@
 using CleanArchitecture.Application.Abstractions.Behaviors;
+using CleanArchitecture.Application.Paginations;
 using CleanArchitecture.Domain.Alquileres;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +21,6 @@ public static class DependencyInjection
         services.AddValidatorsFromAssembly(typeof(DependencyInjection).Assembly);
 
         services.AddTransient<PrecioService>();
-
         return services;
     }
 }
